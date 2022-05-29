@@ -1,0 +1,225 @@
+﻿<Window x:Class="ClassRoomBusyness.Windows.TimeTable"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ClassRoomBusyness.Windows"
+        mc:Ignorable="d"
+        Title="TimeTable"
+        Height="450" 
+        Width="800"
+        FontFamily="Montserrat" 
+        FontWeight="Normal" 
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="8*"/>
+        </Grid.RowDefinitions>
+        <Border BorderThickness="0,0,0,0.5" BorderBrush="Black">
+            <StackPanel
+                Orientation="Horizontal"
+                VerticalAlignment="Center"
+                >
+                <Button Style="{DynamicResource ButtonRoundStyle}"
+                    x:Name="btnBack"
+                    Width="30"
+                    Height="30"
+                    Margin=" 20 0 0 0" 
+                    Foreground="Black"
+                    Background="White" BorderThickness="0,0,0,0" Click="btnBack_Click"                    
+                    >
+                    <Button.Effect>
+                        <DropShadowEffect Color="Black" BlurRadius="3" Opacity="0.5" Direction="270" ShadowDepth="0.5"/>
+                    </Button.Effect>
+                    <Image Source="/ClassRoomBusyness;component/img/ArrowLeft.png" Height="11" />
+                </Button>
+                <TextBlock
+                    Text="Поиск кабинета :" 
+                    Height="15"
+                    Margin="20 0 0 0 " FontSize="11"
+                    />
+                <TextBox Style="{DynamicResource TextBoxStyle}"
+                    Width="110"
+                    Margin="10 0 0 0 "
+                         x:Name="tbSearchClassroom"
+                    Height="15" BorderThickness="0,0,0,1" BorderBrush="Black" TextChanged="tbSearchClassroom_TextChanged" 
+                    >
+
+                </TextBox>
+                <TextBlock
+                    Text="Выбор даты :" 
+                    Height="15"
+                    Margin="20 0 0 0 " FontSize="11"
+                    >
+
+                </TextBlock>
+                <DatePicker Style="{DynamicResource DatePickerStyle}"
+                    Width="110"
+                    Margin="10 0 0 0 "
+                    BorderBrush="Black"
+                    Foreground="Black"
+                    Height="20"
+                    FontSize="11px"
+                    x:Name="dpSelectDate" SelectedDateChanged="dpSelectDate_SelectedDateChanged"
+                    />
+                <TextBlock
+                    Text="Поиск группы :" 
+                    Height="15"
+                    Margin="20 0 0 0 " FontSize="11"
+                    >
+
+                </TextBlock>
+                <TextBox Style="{DynamicResource TextBoxStyle}"
+                    Width="110"
+                    Margin="10 0 0 0 "
+                         x:Name="tbSearchGroup"
+                    Height="15" BorderThickness="0,0,0,1" BorderBrush="Black" TextChanged="tbSearchGroup_TextChanged"
+                    >
+
+                </TextBox>
+                <Button Style="{DynamicResource ButtonRoundStyle}"
+                    x:Name="btnAdd"
+                    Width="30"
+                    Height="30"
+                    Margin=" 20 0 0 0" 
+                    Foreground="Black"
+                    Background="White" BorderThickness="0,0,0,0" Click="btnAdd_Click"    
+                    >
+                    <Button.Effect>
+                        <DropShadowEffect Color="Black" BlurRadius="3" Opacity="0.5" Direction="270" ShadowDepth="0.5"/>
+                    </Button.Effect>
+                    <Image  Height="15" Source="/ClassRoomBusyness;component/img/Plus.png" />
+                </Button>
+            </StackPanel>
+        </Border>
+        <ListView
+            Grid.Row="1"
+            x:Name="lvTimeTable"
+            ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+            HorizontalContentAlignment="Center" MouseDoubleClick="lvTimeTable_MouseDoubleClick" KeyDown="lvTimeTable_KeyDown" 
+            >
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border
+            Width="700"
+            Height="100"
+            BorderThickness="2"
+            BorderBrush="White"
+            CornerRadius="10"
+            Background="White"
+            HorizontalAlignment="Center"
+            Margin=" 10 10 0 0"
+            >
+                        <Border.Effect>
+                            <DropShadowEffect BlurRadius="10" Opacity="0.16"/>
+                        </Border.Effect>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock
+                    Text="Номер(-а) пары :" 
+                    Height="15"
+                    Margin="0 0 70 0 "
+                    FontSize="12"
+                    Grid.Row="1"
+                    Grid.RowSpan="2"
+                    HorizontalAlignment="Right" Foreground="#FF747474"
+                    />
+                            <TextBlock
+                    Text="{Binding NumberOfDoublePeriod}" 
+                    Height="15"
+                    Margin="0 2 35 0 "
+                    FontSize="12"
+                    Grid.Row="1"
+                    Grid.RowSpan="2"
+                    HorizontalAlignment="Right" Foreground="#FF747474"
+                    />
+                            <TextBlock
+                    Text="Номер кабинета :" 
+                    Height="15"
+                    Margin="20 0 0 0 "
+                    FontSize="12"
+                    Grid.Row="2"
+                    Grid.RowSpan="2" Foreground="#FF747474"
+                    />
+                            <TextBlock
+                    Text="{Binding Classroom.Number}" 
+                    Height="15"
+                    Margin="135 2 0 0 "
+                    FontSize="12"
+                    Grid.Row="2"
+                    Grid.RowSpan="2" Foreground="#FF747474"
+                    />
+                            <TextBlock
+                    Text="Преподаватель :" 
+                    Height="15"
+                    Margin="20 0 0 0 "
+                    FontSize="12"
+                    Grid.Row="4"
+                    Grid.RowSpan="2" Foreground="#FF747474"
+                    />
+                            <TextBlock
+                    Text="{Binding Teacher.FIO}" 
+                    Height="15"
+                    Margin="130 0 0 0 "
+                    FontSize="12"
+                    Grid.Row="4"
+                    Grid.RowSpan="2" Foreground="#FF747474"
+                    />
+                            <TextBlock
+                    Text="Группа :" 
+                    Height="15"
+                    Margin="20 0 0 0 "
+                    FontSize="12"
+                    Grid.Row="6"
+                    Grid.RowSpan="2" Foreground="#FF747474"
+                    />
+                            <TextBlock
+                    Text="{Binding Group.Title}" 
+                    Height="15"
+                    Margin="75 2 0 0 "
+                    FontSize="12"
+                    Grid.Row="6"
+                    Grid.RowSpan="2" Foreground="#FF747474"
+                    />
+                            <TextBlock
+                    Text="Дата :" 
+                    Height="15"
+                    Margin="0 0 105 0 "
+                    FontSize="12"
+                    Grid.Row="7"
+                    Grid.RowSpan="2"
+                    HorizontalAlignment="Right" Foreground="#FF747474"
+                    />
+                            <TextBlock
+                    Text="{Binding DateOfClasses , StringFormat={}{0:dd/MM/yyyy}}" 
+                    Height="15"
+                    Margin="0 2 35 0 "
+                    FontSize="12"
+                    Grid.Row="7"
+                    Grid.RowSpan="2"
+                    HorizontalAlignment="Right" Foreground="#FF747474"
+                    />
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Window>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClassRoomBusyness.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,23 @@ namespace ClassRoomBusyness
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void btnTimeTable_Click(object sender, RoutedEventArgs e)
+        {
+            bool Access = false;
+            TimeTable timeTable=new TimeTable(Access);
+            this.Hide();
+            timeTable.ShowDialog();
+            this.ShowDialog();
+        }
+
+        private void btnForAdmins_Click(object sender, RoutedEventArgs e)
+        {
+            PasswordWindow passwordWindow=new PasswordWindow();
+            this.Hide();
+            passwordWindow.ShowDialog();
+            this.ShowDialog();
         }
     }
 }

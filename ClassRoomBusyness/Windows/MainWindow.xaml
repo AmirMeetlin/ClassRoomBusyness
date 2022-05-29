@@ -5,8 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClassRoomBusyness"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow"
+        Height="450"
+        Width="800" 
+        FontFamily="Montserrat" 
+        FontWeight="Normal" 
+        WindowStartupLocation="CenterScreen"
+        >
+
     <Grid>
-        
+        <StackPanel
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Orientation="Horizontal"
+            >
+            <Button Style="{DynamicResource ButtonMenuStyle}"
+                Content="Посмотреть расписание"
+                Width="170"
+                Height="50"
+                BorderBrush="Black" 
+                Background="{x:Null}"
+                BorderThickness="0,0,0,1"
+                    x:Name="btnTimeTable" Click="btnTimeTable_Click"
+                >
+            </Button>
+            <Button
+                Style="{DynamicResource ButtonMenuStyle}"
+                Content="Для администраторов"
+                Width="170"
+                Height="50"
+                BorderBrush="Black" 
+                Background="{x:Null}"
+                BorderThickness="0,0,0,1"
+                Margin=" 120 0 0 0"
+                x:Name="btnForAdmins" Click="btnForAdmins_Click"
+                >
+            </Button>
+        </StackPanel>
     </Grid>
 </Window>

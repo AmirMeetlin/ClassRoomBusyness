@@ -18,7 +18,7 @@ namespace ClassRoomBusyness.EF
         public int IdGroup { get; set; }
         public int IdTeacher { get; set; }
         public int IdClassroom { get; set; }
-        public int NumberOfDoublePeriod { get; set; }
+        public string NumberOfDoublePeriod { get; set; }
         public System.DateTime DateOfClasses { get; set; }
     
         public virtual Classroom Classroom { get; set; }

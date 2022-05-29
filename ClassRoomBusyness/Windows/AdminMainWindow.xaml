@@ -1,0 +1,70 @@
+﻿<Window x:Class="ClassRoomBusyness.Windows.AdminMainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ClassRoomBusyness.Windows"
+        mc:Ignorable="d"
+        Title="AdminMainWindow" Height="450" Width="800"
+        FontFamily="Montserrat" 
+        FontWeight="Normal" 
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <StackPanel
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Orientation="Horizontal"
+            >
+            <Button Style="{DynamicResource ButtonMenuStyle}"
+                Content="Список групп"
+                Width="170"
+                Height="50"
+                BorderBrush="Black" 
+                Background="{x:Null}"
+                BorderThickness="0,0,0,1"
+                    x:Name="btnGroupList" Click="btnGroupList_Click"
+                >
+            </Button>
+            <Button
+                Style="{DynamicResource ButtonMenuStyle}"
+                Content="Посмотреть расписание"
+                Width="170"
+                Height="50"
+                BorderBrush="Black" 
+                Background="{x:Null}"
+                BorderThickness="0,0,0,1"
+                Margin=" 100 0 0 0"
+                x:Name="btnTimeTable" Click="btnTimeTable_Click"
+                >
+            </Button>
+            <Button
+                Style="{DynamicResource ButtonMenuStyle}"
+                Content="Список преподавателей"
+                Width="170"
+                Height="50"
+                BorderBrush="Black" 
+                Background="{x:Null}"
+                BorderThickness="0,0,0,1"
+                Margin=" 100 0 0 0"
+                x:Name="btnTeacgerList" Click="btnTeacherList_Click"
+                >
+            </Button>
+        </StackPanel>
+        <Button
+                Style="{DynamicResource ButtonMenuStyle}"
+                Content="Вернуться назад"
+                Width="100"
+                Height="30"
+                FontSize="10"
+                BorderBrush="Black" 
+                Background="{x:Null}"
+                BorderThickness="0,0,0,1"
+                Margin=" 0 0 0 10"
+                x:Name="btnBack"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom" Click="btnBack_Click"
+                >
+           
+        </Button>
+    </Grid>
+</Window>
